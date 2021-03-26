@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhishu.excel.dao.DealExcelDao">
+
+    <insert id="batchProjectInserts">
+        INSERT ALL
+        <foreach collection="list" item="item" index="index">
+            INTO ZS_Project_info
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="item.index != null">id,</if>
+                <if test="item.projectName != null">projectName,</if>
+                <if test="item.buildNum != null">buildNum,</if>
+                <if test="item.roomId != null">roomId,</if>
+                <if test="item.floor != null">floor,</if>
+                <if test="item.roomNO != null">roomNO,</if>
+                <if test="item.purpose != null">purpose,</if>
+                <if test="item.actualArea != null">actualArea,</if>
+                <if test="item.buyHouse != null">buyHouse,</if>
+                <if test="item.remark != null">remark,</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="item.index != null">#{item.index},</if>
+                <if test="item.projectName != null">#{item.projectName},</if>
+                <if test="item.buildNum != null">#{item.buildNum},</if>
+                <if test="item.roomId != null">#{item.roomId},</if>
+                <if test="item.floor != null">#{item.floor},</if>
+                <if test="item.roomNO != null">#{item.roomNO},</if>
+                <if test="item.purpose != null">#{item.purpose},</if>
+                <if test="item.actualArea != null">#{item.actualArea},</if>
+                <if test="item.buyHouse != null">#{item.buyHouse},</if>
+                <if test="item.remark != null">#{item.remark},</if>
+            </trim>
+        </foreach>
+        SELECT 1 FROM DUAL
+    </insert>
+
+    <insert id="batchDepositInserts">
+        INSERT ALL
+        <foreach collection="list" item="item" index="index">
+            INTO ZS_Deposit_Info
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="item.index != null">id,</if>
+                <if test="item.index != null">index,</if>
+                <if test="item.indexName != null">indexName,</if>
+                <if test="item.depositStandard != null">depositStandard,</if>
+                <if test="item.depositAmount != null">depositAmount,</if>
+                <if test="item.depositDate != null">depositDate,</if>
+                <if test="item.billNo != null">billNo,</if>
+                <if test="item.certificateNo != null">certificateNo,</if>
+                <if test="item.projectId != null">projectId,</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="item.index != null">#{item.id},</if>
+                <if test="item.index != null">#{item.index},</if>
+                <if test="item.indexName != null">#{item.indexName},</if>
+                <if test="item.depositStandard != null">#{item.depositStandard},</if>
+                <if test="item.depositAmount != null">#{item.depositAmount},</if>
+                <if test="item.billNo != null">#{item.billNo},</if>
+                <if test="item.certificateNo != null">#{item.certificateNo},</if>
+                <if test="item.projectId != null">#{item.projectId},</if>
+            </trim>
+        </foreach>
+        SELECT 1 FROM DUAL
+    </insert>
+
+
+    <insert id="projectInsert">
+        INSERT
+            INTO ZS_Project_info
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="serialNo != null">serialNo,</if>
+                <if test="projectName != null">projectName,</if>
+                <if test="buildNum != null">buildNum,</if>
+                <if test="roomId != null">roomId,</if>
+                <if test="floor != null">floor,</if>
+                <if test="roomNO != null">roomNO,</if>
+                <if test="purpose != null">purpose,</if>
+                <if test="actualArea != null">actualArea,</if>
+                <if test="buyHouse != null">buyHouse,</if>
+                <if test="remark != null">remark,</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="serialNo != null">#{serialNo},</if>
+                <if test="projectName != null">#{projectName},</if>
+                <if test="buildNum != null">#{buildNum},</if>
+                <if test="roomId != null">#{roomId},</if>
+                <if test="floor != null">#{floor},</if>
+                <if test="roomNO != null">#{roomNO},</if>
+                <if test="purpose != null">#{purpose},</if>
+                <if test="actualArea != null">#{actualArea},</if>
+                <if test="buyHouse != null">#{buyHouse},</if>
+                <if test="remark != null">#{remark},</if>
+            </trim>
+    </insert>
+
+    <insert id="depositInserts">
+        INSERT
+            INTO ZS_Deposit_Info
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="serialNo != null">serialNo,</if>
+                <if test="indexName != null">indexName,</if>
+                <if test="depositStandard != null">depositStandard,</if>
+                <if test="depositAmount != null">depositAmount,</if>
+                <if test="depositDate != null">depositDate,</if>
+                <if test="billNo != null">billNo,</if>
+                <if test="certificateNo != null">certificateNo,</if>
+                <if test="projectId != null">projectId,</if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="serialNo != null">#{serialNo},</if>
+                <if test="indexName != null">#{indexName},</if>
+                <if test="depositStandard != null">#{depositStandard},</if>
+                <if test="depositAmount != null">#{depositAmount},</if>
+                <if test="depositDate != null">#{depositDate},</if>
+                <if test="billNo != null">#{billNo},</if>
+                <if test="certificateNo != null">#{certificateNo},</if>
+                <if test="projectId != null">#{projectId},</if>
+            </trim>
+    </insert>
+
+    <insert id="saveTempInf">
+        INSERT
+        INTO ZS_Temp_Info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="tempInfo != null">tempInfo,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="tempInfo != null">#{tempInfo},</if>
+        </trim>
+    </insert>
+
+    <select id="selectTempInf" resultType="string">
+        SELECT tempInfo FROM zs_temp_info WHERE id =#{id}
+    </select>
+
+</mapper>
